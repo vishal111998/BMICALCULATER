@@ -1,0 +1,182 @@
+<!doctype html>
+    <head>
+    	<title>Fitness-Control</title>
+    <!--	<link rel="stylesheet" type="text/css" href="BMI.css">--->
+        <script type="text/javascript " src="bmicalculater.js"></script>
+     <!--   <script type="text/javascript" src="bmicalculater.js"></script>-->
+
+
+    	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<!--------------------- Css ------------------------------>
+         <style type="text/css">
+                      *{
+                    margin: 0px;
+                    padding: 0px;
+                }
+                body{
+                    background-image: url(background.jpg);
+                }
+                .dumbel{
+                    height: 80px;
+                    width: 130px;
+                }
+                    .navbar-nav{
+                        margin-top: -100px;
+                        padding: 10px;
+                    }
+                    .btn{
+                        float: right;
+                        margin:-50px 100px 0 0px; 
+                    }
+
+                .form{
+                    height: 350px;
+                    width: 400px;
+                    margin:200px 0 0 80px;
+                }
+                .main{
+                    position: relative;
+                }
+                .submit{
+                    position: absolute;
+                    top:330px;
+                    left:175px;
+                }
+                .print{
+                    width: 30%;
+                    height: 200px;
+                    float: left;
+                    position: absolute;
+                    top:200px;
+                    left: 500px;
+                    //background-color: red;    
+                    }
+
+                  </style>
+
+  <script type="text/javascript">
+      
+     //------------ Java Script code  -------------------
+            function calculate(){
+                var w = parseInt(document.getElementById('wait').value);
+                var h = parseInt(document.getElementById('height').value);
+                var n = document.getElementById('name').value;
+                var a = parseInt(document.getElementById('age').value);
+                if(n==""){
+                    alert("Name must be requred.. ");
+                    return false;
+                }
+                if(isNaN(w)){
+                    alert("Wait must be requred.. ");
+                    return false;
+                }
+                if(isNaN(h)){
+                    alert("Height must be requred.. ");
+                    return false;
+                }
+                if(isNaN(a)){
+                    alert("Age must be requred.. ");
+                    return false;
+                }
+            /*  if(h!=0){
+                    alert("Height must be requred.. ");
+                    return false;
+                }
+                if(a!=0){
+                    alert("Age must be requred.. ");
+                    return false;
+                }*/
+                
+                var meter = h/100;
+                var metersqure = meter*meter;
+
+                var result = w/metersqure;
+                //document.getElementById('print').innerHTML=result;
+
+                if(result<=18){
+                    document.getElementById('print').innerHTML="You are UnderWait..";
+                }
+                else if(result>=18 && result<=25){
+                    document.getElementById('print').innerHTML="You are Normal..";
+                }
+                else if(result>=25 && result<=30){
+                    document.getElementById('print').innerHTML="You are OverWait..";
+                }
+                else if(result>30){
+                    document.getElementById('print').innerHTML="Folw Dite & Start the Exersize Everyday...";
+                }
+
+                document.getElementById('name1').innerHTML="Hii.. "+n;
+                document.getElementById('thanks').innerHTML="Thanks for to Visit this Website...";
+
+                //document.write(w,h);
+            }
+
+  </script>
+
+    </head>
+
+    <body>
+    	
+    	<div class="container-fluid">
+    		<nav class="navbar-expand-sm navbar-light">
+    			<a href="#" class="navbar-brand">
+    				<img src="dumble2.jpg" class="dumbel">
+    				<p class="gym text-warning ml-2">GYMNASIUM</p>
+    			</a>
+    			<ul class="navbar-nav navabr justify-content-center" >
+    				<li class="nav-item"><a href="#" class="nav-link text-danger border ">Home</a></li>
+    				<li class="nav-item"><a href="#" class="nav-link text-white border">About</a></li>
+    				<li class="nav-item"><a href="#" class="nav-link text-white  border">contact-Us</a></li>
+    				<li class="nav-item"><a href="#" class="nav-link text-white border">About</a></li>
+    			</ul>
+    			<button class="btn btn-outline-primary">Log Out</button>
+    		</nav>
+
+    		<div class="form rounded-lg border mt-5 main">
+                <form>
+                    <div class="col-md-12 ml-3">
+                        <div class="text-primary text-center mt-3"><h3>Welcome to-</h3></div>
+                        <div class="text-center text-white mt-2">BMI-CALCULATER</div>
+                        <div class="form-group row mt-4">
+                            <label class="col-md-2 text-white">Name:</label>&nbsp;
+                            <input class="col-md-8 form-control" type="text" placeholder="Enter name" name="" id='name'>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 text-white">Wait:</label>
+                            <input class="form-control col-sm-3" type="text" name="" placeholder="Wait-kg" id='wait'>
+
+                             <label class="col-sm-2 text-white">Height:</label>&nbsp;
+                            <input class="form-control col-sm-3" type="text" name="" placeholder="Height-cm" id='height'>
+                        </div>
+
+                        <div class="form-group row col-sm "style="margin-left:70px;">
+                            <label class="col-sm-2 text-white">Age:</label>
+                            <input class="col-sm-3 form-control" type="text" name="" placeholder="Age" id='age'>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-ms-12 bg-danger submit">
+    	           <button onclick="calculate();" class="btn btn-success ">Clculate</button>
+               </div>
+
+
+        </div>
+
+            <div class="print">
+                <div id='name1' class=" text-center text-white mt-5"></div>
+                <div id="print" class="text-center text-white "></div>
+                <div id="thanks" class="text-center text-primary"></div>
+            </div>
+
+
+    	</div>
+    </body>
+</html>

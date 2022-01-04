@@ -1,0 +1,42 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	background-image: url(background.jpg);
+}
+.dumbel{
+	height: 80px;
+	width: 130px;
+}
+	.navbar-nav{
+		margin-top: -100px;
+		padding: 10px;
+	}
+	.btn{
+		float: right;
+		margin:-50px 100px 0 0px; 
+	}
+
+.form{
+	height: 350px;
+	width: 400px;
+	margin:200px 0 0 80px;
+}
+.main{
+	position: relative;
+}
+.submit{
+	position: absolute;
+	top:330px;
+	left:175px;
+}
+.print{
+	width: 30%;
+	height: 200px;
+	float: left;
+	position: absolute;
+	top:200px;
+	left: 500px;
+	//background-color: red;	
+	}
